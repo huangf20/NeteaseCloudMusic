@@ -12,7 +12,7 @@ import android.renderscript.ScriptIntrinsicBlur;
 
 /**
  * Bitmap工具类
- * Created By Rikka on 2019/7/18
+ * Created on 2020/7/18
  */
 public class BitmapUtil {
     private static final String TAG = "BitmapUtil";

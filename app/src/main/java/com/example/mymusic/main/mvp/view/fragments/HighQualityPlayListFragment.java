@@ -221,7 +221,7 @@ public class HighQualityPlayListFragment extends BaseFragment<WowPresenter> impl
             cover.setCover(playlist.get(i).getCoverImgUrl());
             cover.setText(playlist.get(i).getName());
             pager.addView(cover);
-            CustomPlayListPager.RikkaLayoutParams lp = (CustomPlayListPager.RikkaLayoutParams) cover.getLayoutParams();
+            CustomPlayListPager.CustomLayoutParams lp = (CustomPlayListPager.CustomLayoutParams) cover.getLayoutParams();
             lp.setFrom(i);
             lp.setTo(i);
             lp.setIndex(i);

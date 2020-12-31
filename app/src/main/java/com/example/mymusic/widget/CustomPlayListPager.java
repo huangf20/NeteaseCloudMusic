@@ -14,7 +14,7 @@ import android.view.animation.LinearInterpolator;
  * 歌单广场的3个推荐歌单的Pager
  */
 public class CustomPlayListPager extends ViewGroup {
-    private static final String TAG = "RikkaViewPager";
+    private static final String TAG = "CustomViewPager";
 
     //最小缩放倍数 = 0.75
     private static final float MIN_SCALE = 0.75f;
@@ -78,7 +78,7 @@ public class CustomPlayListPager extends ViewGroup {
             totalWidth = widthSize;
         } else {
             for (int i = 0; i < getChildCount(); i++) {
-                RikkaLayoutParams lp = (RikkaLayoutParams) getChildAt(i).getLayoutParams();
+                CustomLayoutParams lp = (CustomLayoutParams) getChildAt(i).getLayoutParams();
                 totalWidth += getChildAt(i).getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
             }
         }
@@ -98,7 +98,7 @@ public class CustomPlayListPager extends ViewGroup {
         } else {
             for (int i = 0; i < getChildCount(); i++) {
                 View child = getChildAt(i);
-                RikkaLayoutParams lp = (RikkaLayoutParams) child.getLayoutParams();
+                CustomLayoutParams lp = (CustomLayoutParams) child.getLayoutParams();
                 maxHeight = Math.max(maxHeight, child.getMeasuredHeight() + lp.topMargin + lp.bottomMargin);
             }
         }
@@ -119,7 +119,7 @@ public class CustomPlayListPager extends ViewGroup {
 
             //滑动的过程也是layout的过程，所以在layout的时候也要更改其透明度和缩放度
             View child = getChildAt(i);
-            RikkaLayoutParams lp = (RikkaLayoutParams) child.getLayoutParams();
+            CustomLayoutParams lp = (CustomLayoutParams) child.getLayoutParams();
             child.setScaleX(lp.getScale());
             child.setScaleY(lp.getScale());
             child.setAlpha(lp.getAlpha());
@@ -147,7 +147,7 @@ public class CustomPlayListPager extends ViewGroup {
         //最右边的baseline
         float baselineRight = getWidth() - baselineLeft;
 
-        RikkaLayoutParams lp = (RikkaLayoutParams) getChildAt(index).getLayoutParams();
+        CustomLayoutParams lp = (CustomLayoutParams) getChildAt(index).getLayoutParams();
         //根据lp的from 和 to来确定基线位置
         switch (lp.getFrom()) {
             case 0:
@@ -192,7 +192,7 @@ public class CustomPlayListPager extends ViewGroup {
     /**
      * 这里要自己写一个ViewGroup的LayoutParams来记录 scale、alpha、from、to,以及位置index
      */
-    public class RikkaLayoutParams extends MarginLayoutParams {
+    public class CustomLayoutParams extends MarginLayoutParams {
         float scale = 0f;
         float alpha = 0f;
         int from;
@@ -239,15 +239,15 @@ public class CustomPlayListPager extends ViewGroup {
             this.index = index;
         }
 
-        public RikkaLayoutParams(Context c, AttributeSet attrs) {
+        public CustomLayoutParams(Context c, AttributeSet attrs) {
             super(c, attrs);
         }
 
-        public RikkaLayoutParams(int width, int height) {
+        public CustomLayoutParams(int width, int height) {
             super(width, height);
         }
 
-        public RikkaLayoutParams(ViewGroup.LayoutParams source) {
+        public CustomLayoutParams(ViewGroup.LayoutParams source) {
             super(source);
         }
     }
@@ -257,17 +257,17 @@ public class CustomPlayListPager extends ViewGroup {
      */
     @Override
     public LayoutParams generateLayoutParams(AttributeSet attrs) {
-        return new RikkaLayoutParams(mContext, attrs);
+        return new CustomLayoutParams(mContext, attrs);
     }
 
     @Override
     protected LayoutParams generateLayoutParams(LayoutParams p) {
-        return new RikkaLayoutParams(p);
+        return new CustomLayoutParams(p);
     }
 
     @Override
     protected LayoutParams generateDefaultLayoutParams() {
-        return new RikkaLayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        return new CustomLayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
     }
 
 
@@ -276,11 +276,11 @@ public class CustomPlayListPager extends ViewGroup {
      */
     @Override
     public void addView(View child, int index, LayoutParams params) {
-        RikkaLayoutParams lp;
-        if (params instanceof RikkaLayoutParams) {
-            lp = (RikkaLayoutParams) params;
+        CustomLayoutParams lp;
+        if (params instanceof CustomLayoutParams) {
+            lp = (CustomLayoutParams) params;
         } else {
-            lp = new RikkaLayoutParams(params);
+            lp = new CustomLayoutParams(params);
         }
         if (getChildCount() < 2) {
             lp.setAlpha(MIN_ALPHA);
@@ -372,7 +372,7 @@ public class CustomPlayListPager extends ViewGroup {
             //在每次完整的滑完一次后，需要重置isReordered，不然当一次滑动很长距离时，会产生问题
             isReordered = false;
             for (int i = 0; i < getChildCount(); i++) {
-                RikkaLayoutParams lp = (RikkaLayoutParams) getChildAt(i).getLayoutParams();
+                CustomLayoutParams lp = (CustomLayoutParams) getChildAt(i).getLayoutParams();
                 lp.setFrom(lp.getTo());
             }
 
@@ -381,7 +381,7 @@ public class CustomPlayListPager extends ViewGroup {
         } else {
             //否则就要判断from和to
             for (int i = 0; i < getChildCount(); i++) {
-                RikkaLayoutParams lp = (RikkaLayoutParams) getChildAt(i).getLayoutParams();
+                CustomLayoutParams lp = (CustomLayoutParams) getChildAt(i).getLayoutParams();
                 switch (lp.getFrom()) {
                     case 0:
                         lp.setTo(offsetPercent > 0 ? 2 : 1);
@@ -441,7 +441,7 @@ public class CustomPlayListPager extends ViewGroup {
      */
     private void changeAlphaAndScale() {
         for (int i = 0; i < getChildCount(); i++) {
-            RikkaLayoutParams lp = (RikkaLayoutParams) getChildAt(i).getLayoutParams();
+            CustomLayoutParams lp = (CustomLayoutParams) getChildAt(i).getLayoutParams();
             switch (lp.getFrom()) {
                 case 0:
                     if (lp.getTo() == 2) {
@@ -485,7 +485,7 @@ public class CustomPlayListPager extends ViewGroup {
                         //如果点到1、0View，则将他们移到最前方
                         setSelection(clickView);
                     } else {
-                        RikkaLayoutParams lp = (RikkaLayoutParams) clickView.getLayoutParams();
+                        CustomLayoutParams lp = (CustomLayoutParams) clickView.getLayoutParams();
                         if (clickListener != null) {
                             clickListener.onPlayListClick(lp.getIndex());
                         }
@@ -504,7 +504,7 @@ public class CustomPlayListPager extends ViewGroup {
     private void setSelection(View clickView) {
         int start = 0;
         int end = 0;
-        RikkaLayoutParams lp = (RikkaLayoutParams) clickView.getLayoutParams();
+        CustomLayoutParams lp = (CustomLayoutParams) clickView.getLayoutParams();
         if (lp.getFrom() == 0) {
             //从0到2
             end = getWidth();

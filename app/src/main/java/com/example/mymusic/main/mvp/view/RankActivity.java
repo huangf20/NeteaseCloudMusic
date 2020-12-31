@@ -37,7 +37,7 @@ import static com.example.mymusic.main.mvp.view.fragments.WowFragment.PLAYLIST_P
 
 /**
  * 排行榜界面
- * Created By Rikka on 2019/7/16
+ * Created on 2020/7/16
  */
 public class RankActivity extends BaseActivity<WowPresenter> implements WowContract.View {
     private static final String TAG = "RankActivity";

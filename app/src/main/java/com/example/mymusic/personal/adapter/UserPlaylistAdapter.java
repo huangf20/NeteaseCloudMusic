@@ -21,7 +21,7 @@ import java.util.List;
 
 /**
  * 用户界面的 歌单列表Adapter
- * Created By Rikka on 2019/7/25
+ * Created on 2020/7/25
  */
 public class UserPlaylistAdapter extends BaseAdapter<RecyclerView.ViewHolder, PlayListItemBean> {
     private static final String TAG = "UserPlaylistAdapter";

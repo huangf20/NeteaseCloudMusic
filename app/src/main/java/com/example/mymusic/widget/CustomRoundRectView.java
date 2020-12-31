@@ -21,9 +21,9 @@ public class CustomRoundRectView extends android.support.v7.widget.AppCompatImag
 
     public CustomRoundRectView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.RikkaRoundRectView, 0, 0);
+        TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CustomRoundRectView, 0, 0);
         try {
-            roundRatio = typedArray.getFloat(R.styleable.RikkaRoundRectView_roundRatio, 16f);
+            roundRatio = typedArray.getFloat(R.styleable.CustomRoundRectView_roundRatio, 16f);
         } finally {
             typedArray.recycle();
         }

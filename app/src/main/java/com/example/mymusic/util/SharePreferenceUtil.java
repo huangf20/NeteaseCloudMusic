@@ -14,8 +14,6 @@ import java.util.Locale;
 
 /**
  * 本地SharePreference工具
- * <p>
- * Created By Rikka on 2019/7/12
  */
 public class SharePreferenceUtil {
     private static final String TAG = "SharePreferenceUtil";

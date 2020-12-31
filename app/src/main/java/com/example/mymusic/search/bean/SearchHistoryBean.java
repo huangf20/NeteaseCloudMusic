@@ -6,7 +6,7 @@ import org.greenrobot.greendao.annotation.Generated;
 
 /**
  * 用于存放历史搜索的GreenDao Bean
- * Created By on 2019/8/3
+ * Created on 2020/8/3
  */
 @Entity
 public class SearchHistoryBean {

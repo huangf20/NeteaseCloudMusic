@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Rikkaの音乐盒</string>
+    <string name="app_name">MyMusic</string>
     <string name="colorPrimary">#D53B32</string>
     <string name="colorPrimaryDark">#ffffff</string>
     <string name="colorAccent">#D81B60</string>

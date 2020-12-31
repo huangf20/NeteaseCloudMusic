@@ -44,7 +44,6 @@ import static com.example.mymusic.main.mvp.view.fragments.WowFragment.PLAYLIST_P
  * 歌单界面嵌套的Fragment来着...
  * 之所以把一个RecyclerView单独写成一个Fragment是为了解耦
  * <p>
- * Created By Rikka on 2019/7/17
  */
 @SuppressLint("ValidFragment")
 public class PlayListFragment extends BaseFragment<WowPresenter> implements WowContract.View {

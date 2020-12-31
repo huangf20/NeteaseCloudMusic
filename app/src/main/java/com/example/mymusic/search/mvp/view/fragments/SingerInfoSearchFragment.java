@@ -39,7 +39,7 @@ import butterknife.OnClick;
 
 /**
  * 歌手详细信息Fragment
- * Created By Rikka on 2019/8/17
+ * Created on 2020/8/17
  */
 public class SingerInfoSearchFragment extends BaseFragment<SingerPresenter> implements SingerContract.View {
     private static final String TAG = "SingerInfoSearchFragment";

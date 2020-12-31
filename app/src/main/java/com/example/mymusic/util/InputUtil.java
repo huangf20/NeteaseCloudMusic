@@ -8,7 +8,7 @@ import com.example.mymusic.R;
 
 /**
  * 输入合法性
- * Created By Rikka on 2019/7/12
+ * Created on 2020/7/12
  */
 public class InputUtil {
     private static final String TAG = "InputUtil";

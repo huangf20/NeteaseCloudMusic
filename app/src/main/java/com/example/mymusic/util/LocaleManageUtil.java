@@ -13,7 +13,7 @@ import java.util.Locale;
 /**
  * 系统的Locale配置
  *
- * Created By Rikka on 2019/7/12
+ * Created on 2020/7/12
  */
 public class LocaleManageUtil {
     private static final String TAG = "LocaleManageUtil";

@@ -11,7 +11,7 @@ import org.greenrobot.greendao.database.Database;
 
 public class App extends Application {
     private static final String TAG = "App";
-    public static final String DATA_BASE_NAME = "RikkaMusicDao";
+    public static final String DATA_BASE_NAME = "MyMusicDao";
 
     private static App mContext;
 

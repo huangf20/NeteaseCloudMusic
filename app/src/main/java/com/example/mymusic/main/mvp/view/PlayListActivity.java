@@ -66,7 +66,7 @@ import jp.wasabeef.glide.transformations.BlurTransformation;
  * 歌单列表界面
  * 该界面就是充满歌曲的歌单列表
  * <p>
- * Created By Rikka on 2019/7/18
+ * Created on 2020/7/18
  */
 public class PlayListActivity extends BaseActivity<WowPresenter> implements WowContract.View {
     private static final String TAG = "PlayListActivity";

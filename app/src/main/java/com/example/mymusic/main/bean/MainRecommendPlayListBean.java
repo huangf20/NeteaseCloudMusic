@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * 首页推荐歌单的ban
- * Created By Rikka on 2019/7/15
+ * Created on 2020/7/15
  */
 public class MainRecommendPlayListBean {
 
@@ -72,11 +72,11 @@ public class MainRecommendPlayListBean {
         private String name;
         private String copywriter;
         private String picUrl;
-        private int playcount;
+        private long playcount;
         private long createTime;
         private CreatorBean creator;
         private int trackCount;
-        private int userId;
+        private long userId;
         private String alg;
 
         public long getId() {
@@ -119,11 +119,11 @@ public class MainRecommendPlayListBean {
             this.picUrl = picUrl;
         }
 
-        public int getPlaycount() {
+        public long getPlaycount() {
             return playcount;
         }
 
-        public void setPlaycount(int playcount) {
+        public void setPlaycount(long playcount) {
             this.playcount = playcount;
         }
 
@@ -151,11 +151,11 @@ public class MainRecommendPlayListBean {
             this.trackCount = trackCount;
         }
 
-        public int getUserId() {
+        public long getUserId() {
             return userId;
         }
 
-        public void setUserId(int userId) {
+        public void setUserId(long userId) {
             this.userId = userId;
         }
 
@@ -199,7 +199,7 @@ public class MainRecommendPlayListBean {
 
             private String description;
             private int accountStatus;
-            private int userId;
+            private long userId;
             private int vipType;
             private int province;
             private String avatarUrl;
@@ -240,11 +240,11 @@ public class MainRecommendPlayListBean {
                 this.accountStatus = accountStatus;
             }
 
-            public int getUserId() {
+            public long getUserId() {
                 return userId;
             }
 
-            public void setUserId(int userId) {
+            public void setUserId(long userId) {
                 this.userId = userId;
             }
 

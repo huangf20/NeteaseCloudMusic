@@ -53,7 +53,7 @@
         <item name="android:textSize">@dimen/sp_15</item>
     </style>
 
-    <style name="RikkaBaseDialog" parent="android:Theme.Dialog">
+    <style name="BaseCustomDialog" parent="android:Theme.Dialog">
         <!--<item name="android:windowFrame">null</item>-->
         <item name="android:windowFullscreen">true</item>
         <!--<item name="windowNoTitle">true</item>-->

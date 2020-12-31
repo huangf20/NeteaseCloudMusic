@@ -12,13 +12,13 @@ import com.example.mymusic.R;
 /**
  * Dialog基类
  */
-public class BaseRikkaMusicDialog extends Dialog {
+public class BaseCustomMusicDialog extends Dialog {
 
-    public BaseRikkaMusicDialog(@NonNull Context context) {
-        this(context, R.style.RikkaBaseDialog);
+    public BaseCustomMusicDialog(@NonNull Context context) {
+        this(context, R.style.BaseCustomDialog);
     }
 
-    public BaseRikkaMusicDialog(@NonNull Context context, int themeResId) {
+    public BaseCustomMusicDialog(@NonNull Context context, int themeResId) {
         super(context, themeResId);
     }
 

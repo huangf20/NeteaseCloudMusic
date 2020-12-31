@@ -23,7 +23,7 @@ import com.example.mymusic.util.LogUtil;
  * 双指缩放（通过ScaleGestureDetector实现）
  */
 public class CustomScalableView extends View {
-    private static final String TAG = "RikkaScalableView";
+    private static final String TAG = "CustomScalableView";
 
     //Bitmap图片
     private Bitmap mBitmap;

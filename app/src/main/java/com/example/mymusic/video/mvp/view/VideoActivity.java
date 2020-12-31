@@ -7,7 +7,7 @@ import com.example.mymusic.R;
 
 /**
  * 播放视频的地方（mv..）
- * Created By Rikka on 2019/8/5
+ * Created on 2020/8/5
  */
 public class VideoActivity extends AppCompatActivity {
 

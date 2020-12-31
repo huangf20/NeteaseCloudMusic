@@ -37,7 +37,7 @@ import butterknife.OnClick;
 
 /**
  * 歌曲详情界面
- * Created By Rikka on 2019/7/24
+ * Created on 2020/7/24
  */
 public class SongDetailActivity extends BaseActivity<SongPresenter> implements SongContract.View {
 

@@ -1,7 +1,7 @@
 package com.example.mymusic;
 
 public interface Constants {
-    String SHARED_PREFERENCE_FILE_NAME = "RikkaTheWorld_sp";
+    String SHARED_PREFERENCE_FILE_NAME = "MyMusic_sp";
 
 
     interface SpKey {

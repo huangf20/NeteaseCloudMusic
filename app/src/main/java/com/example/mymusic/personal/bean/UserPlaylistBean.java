@@ -67,7 +67,7 @@ public class UserPlaylistBean {
          * subscribedCount : 0
          * cloudTrackCount : 0
          * playCount : 26
-         * name : rikkatheworld喜欢的音乐
+         * name : 喜欢的音乐
          * id : 592471964
          * coverImgId_str : 109951163920229500
          */

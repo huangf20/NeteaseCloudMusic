@@ -10,10 +10,10 @@ import android.widget.TextView;
 
 import com.example.mymusic.App;
 import com.example.mymusic.R;
-import com.example.mymusic.base.BaseRikkaMusicDialog;
+import com.example.mymusic.base.BaseCustomMusicDialog;
 
-public class CustomMusicDialog extends BaseRikkaMusicDialog {
-    private static final String TAG = "RikkaMusicDialog";
+public class CustomMusicDialog extends BaseCustomMusicDialog {
+    private static final String TAG = "CustomMusicDialog";
 
     private Context mContext;
     private TextView tvMsg;
@@ -21,7 +21,7 @@ public class CustomMusicDialog extends BaseRikkaMusicDialog {
     private DialogInterface.OnClickListener cancelListener, confirmListener;
 
     private CustomMusicDialog(@NonNull Context context) {
-        this(context, R.style.RikkaBaseDialog);
+        this(context, R.style.BaseCustomDialog);
     }
 
     private CustomMusicDialog(@NonNull Context context, int themeResId) {

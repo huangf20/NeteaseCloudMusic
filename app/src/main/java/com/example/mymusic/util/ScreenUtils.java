@@ -13,7 +13,6 @@ import java.lang.reflect.Method;
 /**
  * 屏幕工具
  * <p>
- * Created By Rikka on 2019/7/12
  */
 public class ScreenUtils {
 

@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 
 public class CustomTextView extends android.support.v7.widget.AppCompatTextView {
-    private static final String TAG = "RikkaTextView";
+    private static final String TAG = "CustomTextView";
 
     private Context mContext;
 

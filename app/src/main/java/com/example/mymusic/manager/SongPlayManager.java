@@ -6,6 +6,7 @@ import com.example.mymusic.manager.bean.MusicCanPlayBean;
 import com.example.mymusic.manager.event.MusicPauseEvent;
 import com.example.mymusic.manager.event.MusicStartEvent;
 import com.example.mymusic.manager.event.StopMusicEvent;
+import com.example.mymusic.notification.NotificationUtil;
 import com.hjq.toast.ToastUtils;
 import com.lzx.starrysky.manager.MusicManager;
 import com.lzx.starrysky.manager.OnPlayerEventListener;
@@ -292,6 +293,7 @@ public class SongPlayManager {
         @Override
         public void onMusicSwitch(SongInfo songInfo) {
             LogUtil.d(TAG, "onMusicSwitch");
+            NotificationUtil.getInstance(App.getContext()).updataViewWithNoti(songInfo);
         }
 
         @Override
@@ -600,5 +602,16 @@ public class SongPlayManager {
      */
     public int getCurrentSongIndex() {
         return currentSongIndex;
+    }
+
+    /**
+     * 根据id判断是否是喜欢的歌曲
+     */
+    public static boolean isLike(String songId){
+        List<String> likeList = SharePreferenceUtil.getInstance(App.getContext()).getLikeList();
+        if(likeList.contains(songId)){
+            return true;
+        }
+        return false;
     }
 }

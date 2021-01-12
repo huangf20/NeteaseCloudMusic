@@ -25,6 +25,7 @@ import com.example.mymusic.main.mvp.presenter.MainPresenter;
 import com.example.mymusic.main.mvp.view.fragments.CloudVillageFragment;
 import com.example.mymusic.main.mvp.view.fragments.MineFragment;
 import com.example.mymusic.main.mvp.view.fragments.WowFragment;
+import com.example.mymusic.notification.NotificationUtil;
 import com.example.mymusic.personal.mvp.view.PersonalInfoActivity;
 import com.example.mymusic.search.mvp.view.SearchActivity;
 import com.example.mymusic.util.ActivityStarter;
@@ -88,7 +89,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 .statusBarDarkFont(false)
                 .init();
         connectMusicService();
-
+        initNotification();
         mPagerAdapter = new MultiFragmentPagerAdapter(getSupportFragmentManager());
         fragments.add(new MineFragment());
         fragments.add(new WowFragment());
@@ -96,6 +97,12 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         mPagerAdapter.init(fragments);
     }
 
+    private void initNotification(){
+        SongInfo songInfo = SharePreferenceUtil.getInstance(App.getContext()).getLatestSong();
+        NotificationUtil notificationUtil = NotificationUtil.getInstance(this);
+        notificationUtil.updataView(songInfo);
+        notificationUtil.showNotification();
+    }
     @Override
     protected MainPresenter onCreatePresenter() {
         return new MainPresenter(this);

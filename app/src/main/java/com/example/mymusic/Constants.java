@@ -21,4 +21,9 @@ public interface Constants {
 
         String LIKE_LIST = "likeList";
     }
+    int MUSIC_CONTROL_NEXT=1;
+    int MUSIC_CONTROL_PREVIONS=2;
+    int MUSIC_CONTROL_LIKE_OR_UNLIKE=3;
+    int MUSIC_CONTROL_LYRIC_OR_NOT=4;
+    int MUSIC_CONTROL_PLAY_OR_PAUSE=5;
 }

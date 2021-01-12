@@ -101,4 +101,5 @@
     <dimen name="dp_185">185dp</dimen>
     <dimen name="dp_33">33dp</dimen>
     <dimen name="navigationview_text_size">12sp</dimen>
+    <dimen name="notification_buttom_height">25dp</dimen>
 </resources>

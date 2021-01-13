@@ -13,7 +13,9 @@ import android.support.v4.app.NotificationCompat;
 import android.widget.RemoteViews;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.Request;
+import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.SizeReadyCallback;
 import com.bumptech.glide.request.target.Target;
@@ -47,7 +49,6 @@ public class NotificationUtil {
     public static final int NOTIFICATION_ID = 10004;
     private RemoteViews mNormalView;
     private RemoteViews mBigview;
-    private boolean isPlay;
     public  static NotificationUtil getInstance(Context mContext){
         if(sNotificationUtil !=null){
             return sNotificationUtil;
@@ -59,7 +60,6 @@ public class NotificationUtil {
         this.mContext = mContext;
         mNotificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
         initView();
-        isPlay= SongPlayManager.getInstance().isPlaying();
         EventBus.getDefault().register(this);
     }
 
@@ -125,7 +125,12 @@ public class NotificationUtil {
     }
 
     public void setCover(String uri){
-        Glide.with(App.getContext()).asBitmap().load(uri).into(new SimpleTarget<Bitmap>() {
+        Glide.with(App.getContext())
+                .asBitmap().load(uri)
+                .skipMemoryCache(true)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .apply(new RequestOptions().override(200,200))
+                .into(new SimpleTarget<Bitmap>() {
             @Override
             public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
                 mBigview.setImageViewBitmap(R.id.iv_sing_cover,resource);
@@ -140,7 +145,6 @@ public class NotificationUtil {
         mBigview.setTextViewText(R.id.tv_song_name,s);
     }
     public void sendNext(){
-
     }
     public void sendPre(){
 
@@ -166,6 +170,7 @@ public class NotificationUtil {
         LogUtil.d(TAG, "MusicStartEvent :" + event);
         updataView(event.getSongInfo());
         setPlayButton();
+        updataNotification();
     }
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onStopMusicEvent(StopMusicEvent event) {

@@ -129,7 +129,7 @@ public class NotificationUtil {
                 .asBitmap().load(uri)
                 .skipMemoryCache(true)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .apply(new RequestOptions().override(200,200))
+                .apply(new RequestOptions().override(140,140))
                 .into(new SimpleTarget<Bitmap>() {
             @Override
             public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {

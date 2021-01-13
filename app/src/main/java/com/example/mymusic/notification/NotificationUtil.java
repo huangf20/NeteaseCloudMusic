@@ -166,7 +166,6 @@ public class NotificationUtil {
         LogUtil.d(TAG, "MusicStartEvent :" + event);
         updataView(event.getSongInfo());
         setPlayButton();
-        setCover(event.getSongInfo().getSongCover());
     }
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onStopMusicEvent(StopMusicEvent event) {

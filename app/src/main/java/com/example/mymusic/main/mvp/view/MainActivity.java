@@ -99,7 +99,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     private void initNotification(){
         SongInfo songInfo = SharePreferenceUtil.getInstance(App.getContext()).getLatestSong();
-        NotificationUtil notificationUtil = NotificationUtil.getInstance(this);
+        NotificationUtil notificationUtil = NotificationUtil.getInstance(App.getContext());
         notificationUtil.updataView(songInfo);
         notificationUtil.showNotification();
         notificationUtil.setCover(songInfo.getSongCover());

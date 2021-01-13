@@ -20,6 +20,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.mymusic.App;
+import com.example.mymusic.notification.NotificationUtil;
 import com.example.mymusic.song.mvp.contract.SongContract;
 import com.example.mymusic.song.mvp.presenter.SongPresenter;
 import com.hjq.toast.ToastUtils;
@@ -301,7 +303,8 @@ public class SongActivity extends BaseActivity<SongPresenter> implements SongCon
                 .apply(RequestOptions.bitmapTransform(new BlurTransformation(25, 12)))
                 .transition(new DrawableTransitionOptions().crossFade(1500))
                 .into(ivBg);
-//        calculateColors(coverUrl);
+//      通知栏图片
+        NotificationUtil.getInstance(App.getContext()).setCover(coverUrl);
     }
 
     @Override

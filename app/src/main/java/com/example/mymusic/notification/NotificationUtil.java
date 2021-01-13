@@ -5,9 +5,20 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.widget.RemoteViews;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.Request;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.target.SizeReadyCallback;
+import com.bumptech.glide.request.target.Target;
+import com.bumptech.glide.request.transition.Transition;
+import com.example.mymusic.App;
 import com.example.mymusic.Constants;
 import com.example.mymusic.R;
 import com.example.mymusic.manager.SongPlayManager;
@@ -113,6 +124,15 @@ public class NotificationUtil {
 
     }
 
+    public void setCover(String uri){
+        Glide.with(App.getContext()).asBitmap().load(uri).into(new SimpleTarget<Bitmap>() {
+            @Override
+            public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                mBigview.setImageViewBitmap(R.id.iv_sing_cover,resource);
+                mNotificationManager.notify(NOTIFICATION_ID, mNotification);
+            }
+        });
+    }
     public void setSinger(String s){
         mBigview.setTextViewText(R.id.tv_song_singer,s);
     }
@@ -136,27 +156,29 @@ public class NotificationUtil {
     }
     public void updataViewWithNoti(SongInfo songInfo){
         updataView(songInfo);
+        updataNotification();
+    }
+    public void updataNotification(){
         mNotificationManager.notify(NOTIFICATION_ID, mNotification);
     }
-
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onPlayMusicEvent(MusicStartEvent event) {
         LogUtil.d(TAG, "MusicStartEvent :" + event);
-        updataViewWithNoti(event.getSongInfo());
+        updataView(event.getSongInfo());
         setPlayButton();
-        mNotificationManager.notify(NOTIFICATION_ID, mNotification);
+        setCover(event.getSongInfo().getSongCover());
     }
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onStopMusicEvent(StopMusicEvent event) {
         LogUtil.d(TAG, "onStopMusicEvent");
         setPauseButton();
-        mNotificationManager.notify(NOTIFICATION_ID, mNotification);
+        updataNotification();
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onPauseMusicEvent(MusicPauseEvent event) {
         LogUtil.d(TAG, "onPauseMusicEvent");
         setPauseButton();
-        mNotificationManager.notify(NOTIFICATION_ID, mNotification);
+        updataNotification();
     }
 }

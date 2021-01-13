@@ -102,6 +102,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         NotificationUtil notificationUtil = NotificationUtil.getInstance(this);
         notificationUtil.updataView(songInfo);
         notificationUtil.showNotification();
+        notificationUtil.setCover(songInfo.getSongCover());
     }
     @Override
     protected MainPresenter onCreatePresenter() {

@@ -60,7 +60,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
         android:layout_marginEnd="@dimen/dp_15"
         android:background="@drawable/bg_folow"
         android:paddingLeft="@dimen/dp_10"
@@ -68,9 +67,8 @@
         android:paddingRight="@dimen/dp_10"
         android:paddingBottom="@dimen/dp_5"
         android:text="@string/followin"
-        android:textColor="#D53B32"
-        android:textSize="@dimen/sp_15"
-        />
+        android:textColor="#28ad17"
+        android:textSize="@dimen/sp_15" />
 
     <TextView
         android:id="@+id/tv_already_follow"

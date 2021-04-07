@@ -34,7 +34,7 @@
                 android:maxLength="20"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:textColor="#2196f3"
+                android:textColor="#56a96a"
                 android:textSize="@dimen/sp_14" />
 
             <TextView

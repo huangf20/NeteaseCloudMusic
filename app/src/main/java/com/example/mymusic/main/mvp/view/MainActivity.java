@@ -128,7 +128,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         viewPager.setCurrentItem(1);
         mPagerAdapter.getItem(1).setUserVisibleHint(true);
         tabTitle.setupWithViewPager(viewPager);
-        tabTitle.setTabTextColors(Color.parseColor("#e78c86"), Color.parseColor("#FFFDFD"));
+        tabTitle.setTabTextColors(Color.parseColor("#097924"), Color.parseColor("#FFFDFD"));
         assert loginBean != null;
         initView(loginBean);
 

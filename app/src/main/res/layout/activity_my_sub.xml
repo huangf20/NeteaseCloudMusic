@@ -10,7 +10,7 @@
         android:id="@+id/rl_title"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_75"
-        android:background="#D53B32">
+        android:background="#2ebb15">
 
         <include
             layout="@layout/common_title"

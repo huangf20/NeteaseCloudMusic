@@ -34,7 +34,7 @@ public class SplashActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        ScreenUtils.setStatusBarColor(this, Color.parseColor("#Db2C1F"));
+        ScreenUtils.setStatusBarColor(this, Color.parseColor("#91e46b"));
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.example.mymusic.api;
+ package com.example.mymusic.api;
 
 import com.example.mymusic.dj.bean.DjCategoryRecommendBean;
 import com.example.mymusic.dj.bean.DjCatelistBean;
@@ -56,7 +56,7 @@ import retrofit2.http.Query;
 
 public interface ApiService {
 
-    String BASE_URL = "http://192.168.2.136:3000/";
+    String BASE_URL = "http://192.168.43.193:3000/";
 
     @GET("login/cellphone")
     Observable<LoginBean> login(@Query("phone") String phone, @Query("password") String password);

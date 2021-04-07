@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#Db2C1F"
+    android:background="#91e16b"
     tools:context="com.example.mymusic.login.mvp.view.LoginActivity">
 
     <ImageView
-        android:layout_width="@dimen/dp_120"
-        android:layout_height="@dimen/dp_120"
+        android:layout_width="243dp"
+        android:layout_height="196dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/dp_120"
         app:srcCompat="@drawable/icon_login" />
@@ -30,6 +30,6 @@
             android:layout_marginBottom="@dimen/dp_120"
             android:background="@drawable/shape_btn_login"
             android:text="@string/login_phone_number"
-            android:textColor="#Db2C1F" />
+            android:textColor="#347f46" />
     </RelativeLayout>
 </RelativeLayout>

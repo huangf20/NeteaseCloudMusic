@@ -186,6 +186,7 @@
                 <action android:name="com.example.mymusic.controlbroadcast"></action>
             </intent-filter>
         </receiver>
+        <activity android:name=".main.mvp.view.StudentActivity"></activity>
     </application>
 
 </manifest>

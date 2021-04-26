@@ -43,12 +43,11 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void startCountDownTime() {
+        //millisInfuture：倒计时的总时长   countDownInterval：每次的时间间隔 单位均为毫秒
         countDownTimer = new CountDownTimer(2000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-
             }
-
             @Override
             public void onFinish() {
                 String authToken = SharePreferenceUtil.getInstance(SplashActivity.this).getAuthToken("");
@@ -81,8 +80,6 @@ public class SplashActivity extends BaseActivity {
     protected void initModule() {
 
     }
-
-
     @Override
     public void onClick(View v) {
 

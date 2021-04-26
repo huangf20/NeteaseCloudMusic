@@ -97,7 +97,6 @@ public class PersonalInfoActivity extends BaseActivity<PersonalPresenter> implem
     protected void onCreateView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_personal_info);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-
         pagerAdapter = new MultiFragmentPagerAdapter(getSupportFragmentManager());
         fragments.add(new UserPlaylistFragment());
         fragments.add(new UserDynamicsFragment());

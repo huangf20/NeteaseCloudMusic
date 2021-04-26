@@ -22,7 +22,6 @@ public class SharePreferenceUtil {
     private static SharedPreferences.Editor editor;
     private static SharePreferenceUtil mInstance;
     private Locale systemCurrentLocal = Locale.CHINESE;
-
     private SharePreferenceUtil() {
     }
 

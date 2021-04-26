@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
@@ -13,6 +14,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.mymusic.App;
@@ -23,8 +25,10 @@ import com.example.mymusic.main.bean.LikeListBean;
 import com.example.mymusic.main.mvp.contract.MainContract;
 import com.example.mymusic.main.mvp.presenter.MainPresenter;
 import com.example.mymusic.main.mvp.view.fragments.CloudVillageFragment;
+import com.example.mymusic.main.mvp.view.fragments.DailyFragment;
 import com.example.mymusic.main.mvp.view.fragments.MineFragment;
 import com.example.mymusic.main.mvp.view.fragments.WowFragment;
+import com.example.mymusic.main.util.ConstantsDaily;
 import com.example.mymusic.notification.NotificationUtil;
 import com.example.mymusic.personal.mvp.view.PersonalInfoActivity;
 import com.example.mymusic.search.mvp.view.SearchActivity;
@@ -53,7 +57,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
     private static final String TAG = "MainActivity";
-
+    private DailyFragment mDailyFragment;
     //viewPager会缓存的Fragment数量
     private static final int VIEWPAGER_OFF_SCREEN_PAGE_LIMIT = 2;
     public static final String LOGIN_BEAN = "loginBean";
@@ -94,6 +98,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         fragments.add(new MineFragment());
         fragments.add(new WowFragment());
         fragments.add(new CloudVillageFragment());
+        mDailyFragment=new DailyFragment();
+        fragments.add(mDailyFragment);
         mPagerAdapter.init(fragments);
     }
 
@@ -288,6 +294,31 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     public void onGetLikeListFail(String e) {
         LogUtil.d(TAG, "onGetLikeListFail");
         ToastUtils.show(e);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case ConstantsDaily.ADD_REQUEST:
+                if(resultCode==RESULT_OK){
+                    Toast.makeText(this,"添加成功",
+                            Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case ConstantsDaily.LOOK_REQUEST:
+                if(resultCode==ConstantsDaily.MODIFY_BACK){
+                    Toast.makeText(this,"修改成功",
+                            Toast.LENGTH_SHORT).show();
+                }
+                if(resultCode==ConstantsDaily.DELETE_BACK){
+                    Toast.makeText(this,"删除成功",
+                            Toast.LENGTH_SHORT).show();
+                }
+                break;
+        }
+        //适配数据更新了，Listview更新
+        mDailyFragment.updata();
     }
 
 }
